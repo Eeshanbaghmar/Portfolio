@@ -1,4 +1,31 @@
+import { useState } from 'react';
+
 export default function Contact() {
+    const [result, setResult] = useState("");
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        setResult("Sending...");
+        const formData = new FormData(event.target);
+
+        formData.append("access_key", "27b105dc-4769-4112-87ed-5bf70bfbbe1f");
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            setResult("Message Sent Successfully!");
+            event.target.reset();
+        } else {
+            console.log("Error", data);
+            setResult(data.message);
+        }
+    };
+
     return (
         <main className="flex-grow">
             {/* Hero Section */}
@@ -86,32 +113,36 @@ export default function Contact() {
                     <div className="lg:col-span-3">
                         <div className="bg-surface-container p-8 md:p-12 rounded-xl border border-white/5 shadow-2xl">
                             <h2 className="text-3xl font-black mb-8 tracking-tight uppercase">Inquiry <span className="text-primary">Form</span></h2>
-                            <form className="space-y-6">
+                            <form onSubmit={onSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label className="text-xs uppercase tracking-widest font-bold text-slate-500">Full Name</label>
-                                        <input className="w-full bg-surface border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all" placeholder="John Doe" type="text" />
+                                        <input className="w-full bg-surface border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all" placeholder="John Doe" type="text" name="name" required />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-xs uppercase tracking-widest font-bold text-slate-500">Email Address</label>
-                                        <input className="w-full bg-surface border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all" placeholder="john@example.com" type="email" />
+                                        <input className="w-full bg-surface border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all" placeholder="john@example.com" type="email" name="email" required />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-xs uppercase tracking-widest font-bold text-slate-500">Service Type</label>
-                                    <select className="w-full bg-surface border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all appearance-none">
-                                        <option>Portrait Shoot</option>
-                                        <option>Event Photography</option>
-                                        <option>Instagram Content</option>
+                                    <select className="w-full bg-surface border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all appearance-none" name="service" required>
+                                        <option value="Portrait Shoot">Portrait Shoot</option>
+                                        <option value="Event Photography">Event Photography</option>
+                                        <option value="Instagram Content">Instagram Content</option>
                                     </select>
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-xs uppercase tracking-widest font-bold text-slate-500">Your Message</label>
-                                    <textarea className="w-full bg-surface border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all" placeholder="Tell me about your project..." rows="5"></textarea>
+                                    <textarea className="w-full bg-surface border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all" placeholder="Tell me about your project..." rows="5" name="message" required></textarea>
                                 </div>
-                                <button className="w-full bg-primary text-on-primary py-5 rounded-xl font-black uppercase tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-3" type="button">
-                                    Send Message
-                                    <span className="material-symbols-outlined" data-icon="send">send</span>
+                                <button className="w-full bg-primary text-on-primary py-5 rounded-xl font-black uppercase tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-3 disabled:opacity-75 disabled:cursor-not-allowed" type="submit" disabled={result === "Sending..."}>
+                                    {result ? result : (
+                                        <>
+                                            Send Message
+                                            <span className="material-symbols-outlined" data-icon="send">send</span>
+                                        </>
+                                    )}
                                 </button>
                             </form>
                         </div>
