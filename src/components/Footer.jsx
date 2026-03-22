@@ -6,9 +6,9 @@ export default function Footer() {
                     © 2024 Eshan Baghmar. Technical Auteur.
                 </div>
                 <div className="flex gap-8">
-                    <a className="font-manrope text-sm tracking-widest uppercase text-slate-500 hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Instagram</a>
-                    <a className="font-manrope text-sm tracking-widest uppercase text-slate-500 hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Twitter</a>
-                    <a className="font-manrope text-sm tracking-widest uppercase text-slate-500 hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+                    <a className="font-manrope text-sm tracking-widest uppercase text-slate-500 hover:text-white transition-colors opacity-80 hover:opacity-100" href="https://www.instagram.com/eshanbaghmar/" target="_blank" rel="noopener noreferrer">Instagram</a>
+
+                    <a className="font-manrope text-sm tracking-widest uppercase text-slate-500 hover:text-white transition-colors opacity-80 hover:opacity-100" href="https://www.linkedin.com/in/eshan-baghmar-a9a7332b8" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </div>
             </div>
         </footer>

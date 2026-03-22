@@ -13,14 +13,11 @@ export default function Contact() {
                             From technical IoT precision to cinematic visual storytelling. I’m currently accepting bookings for premium photography and creative strategy.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <button className="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:brightness-110 transition-all scale-100 active:scale-95 shadow-xl">
+                            <a href="https://wa.me/917024028585" target="_blank" rel="noopener noreferrer" className="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:brightness-110 transition-all shadow-xl">
                                 <span className="material-symbols-outlined" data-icon="chat">chat</span>
                                 WhatsApp Me
-                            </button>
-                            <div className="flex items-center gap-4 px-6 py-4 rounded-xl bg-surface-container border border-white/10">
-                                <span className="material-symbols-outlined text-primary" data-icon="alternate_email">alternate_email</span>
-                                <span className="font-medium">hello@eshan.studio</span>
-                            </div>
+                            </a>
+
                         </div>
                     </div>
                     <div className="relative">
@@ -149,7 +146,7 @@ export default function Contact() {
                         <div>
                             <h4 className="text-xs uppercase tracking-[0.3em] font-black text-primary mb-6">Direct Channels</h4>
                             <div className="grid grid-cols-1 gap-4">
-                                <a className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-white/10 group" href="#">
+                                <a className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-white/10 group" href="https://www.instagram.com/eshanbaghmar/" target="_blank" rel="noopener noreferrer">
                                     <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
                                         <span className="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
                                     </div>
@@ -158,7 +155,7 @@ export default function Contact() {
                                         <p className="font-bold">@eshan.baghmar</p>
                                     </div>
                                 </a>
-                                <a className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-white/10 group" href="#">
+                                <a className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-white/10 group" href="https://www.linkedin.com/in/eshan-baghmar-a9a7332b8" target="_blank" rel="noopener noreferrer">
                                     <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
                                         <span className="material-symbols-outlined" data-icon="work">work</span>
                                     </div>
